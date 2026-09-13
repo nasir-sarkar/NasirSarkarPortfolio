@@ -43,7 +43,7 @@ export default function Footer() {
   
   // FETCH FROM DB
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/api/footer/getFooter`)
+    fetch(`${import.meta.env.VITE_API_URL}/footer/getFooter`)
       .then((res) => res.json())
       .then((data) => {
         setFooterContactInfo(data.footerContactInfo || [])
