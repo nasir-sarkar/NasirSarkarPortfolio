@@ -7,8 +7,8 @@ const navLinks = [
   { href: '#home',      label: 'Home' },
   { href: '#about',     label: 'About' },
   { href: '#services',  label: 'Services' },
-  { href: '#portfolio', label: 'Portfolio' },
   { href: '#skills',    label: 'Skills' },
+  { href: '#portfolio', label: 'Portfolio' },
   { href: '#education', label: 'Education' },
   { href: '#contact',   label: 'Contact' },
 ]
@@ -85,9 +85,9 @@ export default function Navbar({ onSidebarOpen }) {
           scrolled ? 'header-scrolled' : ''
         }`}
       >
-        <div className="flex items-center justify-between px-5 sm:px-6 lg:px-10 py-[18px]">
+        <div className="flex items-center justify-between px-3 sm:px-6 lg:px-10 py-[18px] min-w-0">
           {/* Logo */}
-          <div>
+          <div className="shrink-0">
             <a
               href="#home"
               onClick={(e) => handleNavClick(e, '#home')}
@@ -122,7 +122,7 @@ export default function Navbar({ onSidebarOpen }) {
 
 
           {/* Right Side */}
-          <div className="flex items-center gap-[12px] sm:gap-[20px]">
+          <div className="flex items-center gap-[8px] sm:gap-[20px] shrink-0">
             {/* Social Icons — desktop only */}
             <SocialLinks 
               links={socialLinks} 
@@ -133,7 +133,7 @@ export default function Navbar({ onSidebarOpen }) {
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, '#contact')}
-              className="btn-red bg-[#f9004d] text-white text-[12px] font-[700] px-[22px] py-[10px] rounded-full uppercase tracking-wide whitespace-nowrap transition-all duration-300 hover:bg-[#c41020]"
+              className="btn-red bg-[#f9004d] text-white text-[10px] sm:text-[12px] font-[700] px-[14px] sm:px-[22px] py-[8px] sm:py-[10px] rounded-full uppercase tracking-wide whitespace-nowrap transition-all duration-300 hover:bg-[#c41020]"
             >
               Contact Me
             </a>
@@ -142,7 +142,7 @@ export default function Navbar({ onSidebarOpen }) {
 
             {/* Hamburger */}
             <button
-              className="lg:hidden flex flex-col gap-[5px] cursor-pointer p-[5px]"
+              className="lg:hidden flex flex-col gap-[5px] cursor-pointer p-[3px] sm:p-[5px] shrink-0"
               onClick={toggleMobile}
               aria-label="Toggle menu"
             >

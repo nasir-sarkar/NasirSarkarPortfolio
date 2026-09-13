@@ -17,7 +17,7 @@ function MarqueeRow({ skills, reverse = false }) {
   const doubled = [...skills, ...skills]
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden min-w-0 w-full">
       <div className={`skills-marquee${reverse ? ' reverse' : ''}`}>
         {doubled.map((skill, i) => (
           <SkillTag key={i} name={skill.name} />
@@ -62,9 +62,9 @@ export default function Skills() {
   const skillsRow2 = skills.filter(s => s.row === 2)
 
   return (
-    <section id="skills" className="bg-white py-[100px]">
+    <section id="skills" className="bg-white py-[100px] overflow-x-hidden">
 
-      <div className="max-w-[1200px] mx-auto px-5">
+      <div className="max-w-[1200px] mx-auto px-5 min-w-0">
 
         <div className="flex items-center gap-[80px] flex-col lg:flex-row">
 
@@ -84,7 +84,7 @@ export default function Skills() {
 
 
           {/* RIGHT */}
-          <div className="flex-1 overflow-hidden min-w-0">
+          <div className="flex-1 overflow-hidden min-w-0 w-full">
 
             <MarqueeRow skills={skillsRow1} />
 
