@@ -84,7 +84,7 @@ export default function Skills() {
 
 
           {/* RIGHT */}
-          <div className="flex-1 overflow-hidden">
+          <div className="flex-1 overflow-hidden min-w-0">
 
             <MarqueeRow skills={skillsRow1} />
 

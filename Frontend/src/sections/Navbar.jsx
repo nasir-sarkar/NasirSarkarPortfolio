@@ -85,7 +85,7 @@ export default function Navbar({ onSidebarOpen }) {
           scrolled ? 'header-scrolled' : ''
         }`}
       >
-        <div className="flex items-center justify-between px-10 py-[18px]">
+        <div className="flex items-center justify-between px-5 sm:px-6 lg:px-10 py-[18px]">
           {/* Logo */}
           <div>
             <a
@@ -122,7 +122,7 @@ export default function Navbar({ onSidebarOpen }) {
 
 
           {/* Right Side */}
-          <div className="flex items-center gap-[30px]">
+          <div className="flex items-center gap-[12px] sm:gap-[20px]">
             {/* Social Icons — desktop only */}
             <SocialLinks 
               links={socialLinks} 
@@ -133,7 +133,7 @@ export default function Navbar({ onSidebarOpen }) {
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, '#contact')}
-              className="btn-red bg-[#f9004d] text-white text-[12px] font-[700] px-[22px] py-[10px] rounded-full uppercase tracking-wide transition-all duration-300 hover:bg-[#c41020]"
+              className="btn-red bg-[#f9004d] text-white text-[12px] font-[700] px-[22px] py-[10px] rounded-full uppercase tracking-wide whitespace-nowrap transition-all duration-300 hover:bg-[#c41020]"
             >
               Contact Me
             </a>
