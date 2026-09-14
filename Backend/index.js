@@ -13,6 +13,8 @@ import contactRoutes from "./routes/contactRoutes.js"
 import footerRoutes from "./routes/footerRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js";
 import educationRoutes from "./routes/educationRoutes.js";
+import experienceRoutes from "./routes/experienceRoutes.js";
+import publicationRoutes from "./routes/publicationRoutes.js";
 import portfolioRoutes from "./routes/portfolioRoutes.js";
 import contactMessageRoutes from "./routes/contactMessageRoutes.js";
 import socialRoutes from "./routes/socialRoutes.js";
@@ -40,6 +42,8 @@ app.use("/api/contact", contactRoutes)
 app.use("/api/footer", footerRoutes);
 app.use("/api/admin", adminRoutes); 
 app.use("/api/education", educationRoutes);
+app.use("/api/experience", experienceRoutes);
+app.use("/api/publications", publicationRoutes);
 app.use("/api/portfolio", portfolioRoutes);
 app.use("/api/messages", contactMessageRoutes);
 app.use("/api/social-links", socialRoutes);

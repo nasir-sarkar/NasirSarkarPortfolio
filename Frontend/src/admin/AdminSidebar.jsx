@@ -18,6 +18,9 @@ import CodeIcon           from '@mui/icons-material/Code'
 import BuildIcon          from '@mui/icons-material/Build'
 import WorkIcon           from '@mui/icons-material/Work'
 import SchoolIcon         from '@mui/icons-material/School'
+import CardMembershipIcon from '@mui/icons-material/CardMembership'
+import WorkHistoryIcon    from '@mui/icons-material/WorkHistory'
+import MenuBookIcon       from '@mui/icons-material/MenuBook'
 import ContactMailIcon    from '@mui/icons-material/ContactMail'
 import InfoIcon           from '@mui/icons-material/Info'
 import VisibilityIcon     from '@mui/icons-material/Visibility'
@@ -31,9 +34,12 @@ const menuItems = [
   { path: '/admin/hero',       icon: HomeIcon,                label: 'Hero Section'     },
   { path: '/admin/about',      icon: PersonIcon,              label: 'About Section'    },
   { path: '/admin/skills',     icon: CodeIcon,                label: 'Skills Section'   },
+  { path: '/admin/experience', icon: WorkHistoryIcon,         label: 'Experience Section'},
+  { path: '/admin/publications', icon: MenuBookIcon,          label: 'Publications Section'},
   { path: '/admin/services',   icon: BuildIcon,               label: 'Services Section' },
   { path: '/admin/portfolio',  icon: WorkIcon,                label: 'Portfolio Section'},
   { path: '/admin/education',  icon: SchoolIcon,              label: 'Education Section'},
+  { path: '/admin/certifications', icon: CardMembershipIcon,  label: 'Certifications Section'},
   { path: '/admin/contact',    icon: ContactMailIcon,         label: 'Contact Section'  },
   { path: '/admin/footer',     icon: InfoIcon,                label: 'Footer Section'   },
   { path: '/admin/admins',     icon: AdminPanelSettingsIcon,  label: 'Admin Users'      },

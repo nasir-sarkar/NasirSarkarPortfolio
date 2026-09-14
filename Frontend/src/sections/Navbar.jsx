@@ -4,13 +4,14 @@ import { smoothScrollTo } from '../utils/scroll'
 import api from '../api/axios'
 
 const navLinks = [
-  { href: '#home',      label: 'Home' },
-  { href: '#about',     label: 'About' },
-  { href: '#services',  label: 'Services' },
-  { href: '#skills',    label: 'Skills' },
-  { href: '#portfolio', label: 'Portfolio' },
-  { href: '#education', label: 'Education' },
-  { href: '#contact',   label: 'Contact' },
+  { href: '#home',       label: 'Home' },
+  { href: '#about',      label: 'About' },
+  { href: '#skills',     label: 'Skills' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#services',   label: 'Services' },
+  { href: '#portfolio',  label: 'Portfolio' },
+  { href: '#education',  label: 'Education' },
+  { href: '#contact',    label: 'Contact' },
 ]
 
 export default function Navbar({ onSidebarOpen }) {

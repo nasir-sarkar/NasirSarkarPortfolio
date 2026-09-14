@@ -7,6 +7,7 @@ import Sidebar from './sections/Sidebar'
 import Navbar from './sections/Navbar'
 import Hero from './sections/Hero'
 import About from './sections/About'
+import ExperiencePublications from './sections/ExperiencePublications'
 import Services from './sections/Services'
 import Skills from './sections/Skills'
 import Portfolio from './sections/Portfolio'
@@ -24,6 +25,9 @@ import SkillsSection from './admin/pages/SkillsSection'
 import ServicesSection from './admin/pages/ServicesSection'
 import PortfolioSection from './admin/pages/PortfolioSection'
 import EducationSection from './admin/pages/EducationSection'
+import CertificationSection from './admin/pages/CertificationSection'
+import ExperienceSection from './admin/pages/ExperienceSection'
+import PublicationSection from './admin/pages/PublicationSection'
 import ContactSection from './admin/pages/ContactSection'
 import FooterSection from './admin/pages/FooterSection'
 
@@ -70,8 +74,9 @@ function HomeContent({ sidebarOpen, setSidebarOpen }) {
       <main>
         <Hero />
         <About />
-        <Services />
         <Skills />
+        <ExperiencePublications />
+        <Services />
         <Portfolio />
         <Education />
         <Contact />
@@ -149,6 +154,9 @@ export default function App() {
             <Route path="services" element={<ServicesSection />} />
             <Route path="portfolio" element={<PortfolioSection />} />
             <Route path="education" element={<EducationSection />} />
+            <Route path="certifications" element={<CertificationSection />} />
+            <Route path="experience" element={<ExperienceSection />} />
+            <Route path="publications" element={<PublicationSection />} />
             <Route path="contact" element={<ContactSection />} />
             <Route path="footer" element={<FooterSection />} />
             <Route path="admins" element={<AdminSection />} />

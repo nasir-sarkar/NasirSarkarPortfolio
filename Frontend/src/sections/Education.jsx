@@ -81,7 +81,7 @@ export default function Education() {
         <div ref={headerRef}>
           <SectionHeader
             eyebrow="Academic Journey"
-            title="Education & Achievements"
+            title="Education & Certifications"
             subtitle={
               <>
                 My academic background that built the foundation<br />
@@ -94,6 +94,9 @@ export default function Education() {
 
 
         {/* Education Cards */}
+        <h3 className="text-[20px] font-[700] text-[#0d0d0d] mb-[22px]">
+          Education
+        </h3>
         <div className="flex flex-wrap justify-center gap-[30px] mb-[30px]">
           {displayEdu.map((card, i) => (
             <div
@@ -109,6 +112,9 @@ export default function Education() {
 
 
         {/* Cert Cards */}
+        <h3 className="text-[20px] font-[700] text-[#0d0d0d] mb-[22px]">
+          Certifications
+        </h3>
         <div className="flex flex-wrap justify-center gap-[30px]">
           {displayCert.map((card, i) => (
             <div
@@ -124,6 +130,7 @@ export default function Education() {
                     ? `data:${card.imgMime || 'image/png'};base64,${card.imgBase64}`
                     : null
                 }
+                rounded="rounded-[8px]"
               />
             </div>
           ))}
