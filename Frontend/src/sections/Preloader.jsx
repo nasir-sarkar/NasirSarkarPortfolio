@@ -177,11 +177,6 @@ export default function Preloader({ hidden, progress = 0, failed = false, onRetr
             </div>
 
 
-            <p className="preloader-status mt-4 text-[#bbb] text-[13px] tracking-wide text-center max-w-[300px] leading-relaxed">
-              <span>First load may take a few seconds<span className="preloader-caret">_</span></span>
-            </p>
-
-
             <div className="mt-5 flex items-center gap-[6px]">
               <span className="preloader-bounce-dot" style={{ animationDelay: '0s' }} />
               <span className="preloader-bounce-dot" style={{ animationDelay: '0.15s' }} />
