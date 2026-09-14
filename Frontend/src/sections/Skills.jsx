@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import axios from '../api/axios'
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver'
+import { useLoading } from '../context/LoadingContext'
 
 function SkillTag({ name }) {
   return (
@@ -36,6 +37,7 @@ export default function Skills() {
 
   // DB STATE
   const [skills, setSkills] = useState([])
+  const { markReady } = useLoading()
 
 
   // FETCH FROM DATABASE
@@ -47,6 +49,7 @@ export default function Skills() {
         if (res.data?.skills) {
           setSkills(res.data.skills)
         }
+        markReady('skills')
       } catch (err) {
         console.log("Skills fetch error:", err.message)
       }

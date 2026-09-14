@@ -3,6 +3,7 @@ import { useScrollAnimation } from '../hooks/useIntersectionObserver'
 import SectionHeader from '../components/ui/SectionHeader'
 import EduCard from '../components/ui/EduCard'
 import api from '../api/axios'
+import { useLoading } from '../context/LoadingContext'
 
 export default function Education() {
   const headerRef = useScrollAnimation('fade-up')
@@ -11,6 +12,7 @@ export default function Education() {
   const [educationCards, setEducationCards] = useState([])
   const [certCards,      setCertCards]      = useState([])
   const [loading,        setLoading]        = useState(true)
+  const { markReady } = useLoading()
 
 
   useEffect(() => {
@@ -21,6 +23,7 @@ export default function Education() {
           setEducationCards(res.data.educationCards || [])
           setCertCards(res.data.certCards || [])
         }
+        markReady('education')
       } catch (err) {
         console.log("Education fetch error:", err.message)
       } finally {

@@ -4,6 +4,7 @@ import axios from '../api/axios'
 import { useCounter } from '../hooks/useCounter'
 import Button from '../components/ui/Button'
 import { smoothScrollTo } from '../utils/scroll'
+import { useLoading } from '../context/LoadingContext'
 
 
 // TYPING ANIMATION HOOK
@@ -78,12 +79,14 @@ export default function Hero() {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [started, setStarted] = useState(false)
+  const { markReady } = useLoading()
 
   useEffect(() => {
     const fetchHome = async () => {
       try {
         const res = await axios.get('/home/getHome')
         setData(res.data)
+        markReady('hero')
       } catch (err) {
         console.log(err)
       } finally {

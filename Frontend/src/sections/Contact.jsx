@@ -4,6 +4,7 @@ import SectionHeader from '../components/ui/SectionHeader'
 import SocialLinks from '../components/ui/SocialLinks'
 import Button from '../components/ui/Button'
 import axios from '../api/axios'
+import { useLoading } from '../context/LoadingContext'
 
 const INITIAL_FORM = { name: '', email: '', phone: '', subject: '', message: '' }
 
@@ -25,6 +26,7 @@ export default function Contact() {
   const [toast, setToast] = useState({ show: false, msg: '' })
   const [contactInfo, setContactInfo] = useState([])
   const [socialLinks, setSocialLinks] = useState([])
+  const { markReady } = useLoading()
 
 
   useEffect(() => {
@@ -32,6 +34,7 @@ export default function Contact() {
       .then((res) => {
         setContactInfo(res.data.contactInfo || [])
         setSocialLinks(res.data.socialLinks || [])
+        markReady('contact')
       })
       .catch((err) => console.error('Failed to fetch contact data:', err))
   }, [])

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { smoothScrollTo } from '../utils/scroll'
+import { useLoading } from '../context/LoadingContext'
 
 function NavLink({ item }) {
   const handleClick = (e) => {
@@ -38,6 +39,7 @@ export default function Footer() {
   const [footerContactInfo, setFooterContactInfo] = useState([])
   const [footerInfoLinks,   setFooterInfoLinks]   = useState([])
   const [footerQuickLinks,  setFooterQuickLinks]  = useState([])
+  const { markReady } = useLoading()
 
 
   
@@ -49,6 +51,7 @@ export default function Footer() {
         setFooterContactInfo(data.footerContactInfo || [])
         setFooterInfoLinks(data.footerInfoLinks     || [])
         setFooterQuickLinks(data.footerQuickLinks   || [])
+        markReady('footer')
       })
       .catch((err) => console.error('Failed to fetch footer data:', err))
   }, [])

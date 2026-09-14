@@ -4,6 +4,7 @@ import { useScrollAnimation } from '../hooks/useIntersectionObserver'
 import SectionHeader from '../components/ui/SectionHeader'
 import Button from '../components/ui/Button'
 import api from '../api/axios'
+import { useLoading } from '../context/LoadingContext'
 
 
 function PortfolioCard({ proj, animRef }) {
@@ -86,6 +87,7 @@ export default function Portfolio() {
 
   const [projects, setProjects] = useState([])
   const [loading,  setLoading]  = useState(true)
+  const { markReady } = useLoading()
 
   useEffect(() => {
     const fetchPortfolio = async () => {
@@ -94,6 +96,7 @@ export default function Portfolio() {
         if (res.data) {
           setProjects(res.data.projects || [])
         }
+        markReady('portfolio')
       } catch (err) {
         console.log('Portfolio fetch error:', err.message)
       } finally {
@@ -161,17 +164,6 @@ export default function Portfolio() {
             />
           ))}
         </div>
-
-        {/* <div className="text-center mt-[40px]">
-          <Button
-            href="https://github.com/nasir-sarkar"
-            target="_blank"
-            rel="noreferrer"
-            variant="outline"
-          >
-            View All Works <i className="fas fa-arrow-right ml-1" />
-          </Button>
-        </div> */}
       </div>
     </section>
   )

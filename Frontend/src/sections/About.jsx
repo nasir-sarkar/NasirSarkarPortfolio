@@ -5,12 +5,14 @@ import { useIntersectionObserver } from '../hooks/useIntersectionObserver'
 import InfoList from '../components/ui/InfoList'
 import Button from '../components/ui/Button'
 import axios from '../api/axios'
+import { useLoading } from '../context/LoadingContext'
 
 export default function About() {
   const imgRef = useRef(null)
   const infoRef = useRef(null)
 
   const [about, setAbout] = useState(null)
+  const { markReady } = useLoading()
 
   useIntersectionObserver([
     { ref: imgRef, animClass: 'fade-left' },
@@ -25,6 +27,7 @@ export default function About() {
       try {
         const res = await axios.get('/about/getAbout')
         setAbout(res.data)
+        markReady('about')
       } catch (err) {
         console.log(err)
       }

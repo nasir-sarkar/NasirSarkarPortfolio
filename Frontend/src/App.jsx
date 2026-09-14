@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
 
 import Preloader from './sections/Preloader'
+import { LoadingProvider, useLoading } from './context/LoadingContext'
 import Sidebar from './sections/Sidebar'
 import Navbar from './sections/Navbar'
 import Hero from './sections/Hero'
@@ -34,10 +35,36 @@ import SocialSection from './admin/pages/SocialSection'
 
 
 /* HOME */
-function Home({ preloaderHidden, sidebarOpen, setSidebarOpen }) {
+function HomeContent({ sidebarOpen, setSidebarOpen }) {
+  const { allReady, progress } = useLoading()
+  const [minTimeDone, setMinTimeDone] = useState(false)
+  const [timedOut, setTimedOut] = useState(false)
+
+  
+  useEffect(() => {
+    const t = setTimeout(() => setMinTimeDone(true), 900)
+    return () => clearTimeout(t)
+  }, [])
+
+  
+  useEffect(() => {
+    const t = setTimeout(() => setTimedOut(true), 45000)
+    return () => clearTimeout(t)
+  }, [])
+
+  const preloaderHidden = minTimeDone && allReady
+  const preloaderFailed = timedOut && !allReady
+  const handleRetry = () => window.location.reload()
+
+
   return (
     <>
-      <Preloader hidden={preloaderHidden} />
+      <Preloader
+        hidden={preloaderHidden}
+        progress={progress}
+        failed={preloaderFailed}
+        onRetry={handleRetry}
+      />
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       <Navbar onSidebarOpen={() => setSidebarOpen(true)} />
       <main>
@@ -56,23 +83,20 @@ function Home({ preloaderHidden, sidebarOpen, setSidebarOpen }) {
 }
 
 
+/* HOME */
+function Home({ sidebarOpen, setSidebarOpen }) {
+  return (
+    <LoadingProvider>
+      <HomeContent sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+    </LoadingProvider>
+  )
+}
+
+
 
 /*  APP  */
 export default function App() {
-  const [preloaderHidden, setPreloaderHidden] = useState(false)
   const [sidebarOpen, setSidebarOpen] = useState(false)
-
-
-  /* Preloader */
-  useEffect(() => {
-    const handleLoad = () => setTimeout(() => setPreloaderHidden(true), 800)
-    if (document.readyState === 'complete') {
-      handleLoad()
-    } else {
-      window.addEventListener('load', handleLoad)
-    }
-    return () => window.removeEventListener('load', handleLoad)
-  }, [])
 
 
   /* Lock body scroll when sidebar open */
@@ -91,7 +115,6 @@ export default function App() {
             path="/"
             element={
               <Home
-                preloaderHidden={preloaderHidden}
                 sidebarOpen={sidebarOpen}
                 setSidebarOpen={setSidebarOpen}
               />

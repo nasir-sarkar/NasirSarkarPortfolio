@@ -4,6 +4,7 @@ import axios from '../api/axios'
 import { useScrollAnimation } from '../hooks/useIntersectionObserver'
 import SectionHeader from '../components/ui/SectionHeader'
 import ServiceCard from '../components/ui/ServiceCard'
+import { useLoading } from '../context/LoadingContext'
 
 import {
   Code, Server, Monitor, Database, Layers,
@@ -25,12 +26,14 @@ export default function Services() {
   const cardRefs = useRef([])
 
   const [data, setData] = useState(null)
+  const { markReady } = useLoading()
 
   useEffect(() => {
     const fetchServices = async () => {
       try {
         const res = await axios.get('/services/getServices')
         setData(res.data)
+        markReady('services')
       } catch (err) {
         console.log("Services fetch error:", err)
       }

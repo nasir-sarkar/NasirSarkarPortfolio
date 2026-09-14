@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import SocialLinks from '../components/ui/SocialLinks'
 import api from '../api/axios'
+import { useLoading } from '../context/LoadingContext'
 
 export default function Sidebar({ isOpen, onClose }) {
   const [socialLinks, setSocialLinks] = useState([])
   const [contactItems, setContactItems] = useState([])
+  const { markReady } = useLoading()
 
  
   //   FETCH DATA
@@ -17,6 +19,7 @@ export default function Sidebar({ isOpen, onClose }) {
         ])
         setSocialLinks(socialRes.data)
         setContactItems(contactRes.data.contactInfo || [])
+        markReady('sidebar')
       } catch (err) {
         console.log("Sidebar fetch error:", err)
       }
