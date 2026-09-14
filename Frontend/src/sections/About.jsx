@@ -60,7 +60,7 @@ export default function About() {
 
 
   return (
-    <section id="about" className="bg-white py-[100px]">
+    <section id="about" className="bg-[#f7f7f7] py-[100px]">
       <div className="max-w-[1200px] mx-auto px-5">
         <div className="flex items-center gap-[80px] flex-col lg:flex-row">
 

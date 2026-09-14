@@ -334,7 +334,7 @@ export default function AdminSection() {
 
 
       
-       // ADD / EDIT DIALOG
+      {/* ADD / EDIT DIALOG */}
       <Dialog
         open={dialogOpen}
         onClose={() => setDialogOpen(false)}
@@ -426,7 +426,7 @@ export default function AdminSection() {
 
       
       
-      //    DELETE CONFIRM DIALOG
+      {/* DELETE CONFIRM DIALOG */}
       <Dialog
         open={deleteDialog.open}
         onClose={() => setDeleteDialog({ open: false, id: null, name: '' })}
